@@ -22,5 +22,5 @@ enum TrackerColor: String, Hashable, CaseIterable {
 }
 
 extension TrackerColor {
-    var uiColor: UIColor { .init(hex: self.rawValue + "ff") ?? .asset(.blue) }
+    var uiColor: UIColor { .init(hex: self.rawValue + "ff") ?? .makeColor(.blue) }
 }

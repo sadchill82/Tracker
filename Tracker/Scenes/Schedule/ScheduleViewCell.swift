@@ -41,7 +41,7 @@ final class ScheduleViewCell: UITableViewCell {
     private lazy var toggleView: UISwitch = {
         let toggle = UISwitch()
         
-        toggle.onTintColor = .asset(.blue)
+        toggle.onTintColor = .makeColor(.blue)
         
         toggle.translatesAutoresizingMaskIntoConstraints = false
         
@@ -51,7 +51,7 @@ final class ScheduleViewCell: UITableViewCell {
     private lazy var labelView: UILabel = {
         let label = UILabel()
         
-        label.textColor = .asset(.black)
+        label.textColor = .makeColor(.black)
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -61,7 +61,7 @@ final class ScheduleViewCell: UITableViewCell {
     private lazy var backView: UIView = {
         let view = UIView()
         
-        view.backgroundColor = .asset(.lightGrey).withAlphaComponent(0.3)
+        view.backgroundColor = .makeColor(.lightGrey).withAlphaComponent(0.3)
         
         view.layer.cornerRadius = 10
         view.layer.masksToBounds = true

@@ -54,9 +54,9 @@ final class ScheduleViewController: UIViewController{
         
         
         labelView.text = "Расписание"
-        labelView.font = .asset(.ysDisplayMedium, size: 16)
+        labelView.font = .makeFont(.ysDisplayMedium, size: 16)
         submitButton.setTitle("Готово", for: .normal)
-        submitButton.backgroundColor = .asset(.black)
+        submitButton.backgroundColor = .makeColor(.black)
         submitButton.layer.cornerRadius = 16
         submitButton.setTitleColor(.white, for: .normal)
         submitButton.addTarget(self, action: #selector(addSchedule), for: .touchUpInside)
@@ -76,7 +76,7 @@ final class ScheduleViewController: UIViewController{
         table.register(ScheduleViewCell.self, forCellReuseIdentifier: "cell")
         
         table.separatorInset = .init(top: 0, left: 32, bottom: 0, right: 32)
-        table.separatorColor = .asset(.grey)
+        table.separatorColor = .makeColor(.grey)
         
         table.delegate = self
         table.dataSource = self

@@ -3,7 +3,7 @@ import UIKit
 extension UIView {
     static func placeholderView(message: String, icon: ImageAsset) -> UIView {
         let label = UILabel()
-        label.font = .asset(.ysDisplayMedium, size: 12)
+        label.font = .makeFont(.ysDisplayMedium, size: 12)
         label.text = message
         
         let imageView = UIImageView()

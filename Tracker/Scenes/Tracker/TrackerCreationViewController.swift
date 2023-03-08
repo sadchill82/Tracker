@@ -19,10 +19,10 @@ final class TrackerCreationViewController: UIViewController{
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let labelView: UILabel = UILabel();
-    private let textField: UITextField = UITextField()
-    private let submitButton = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
-    private let cancelButton = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
+    private lazy var labelView: UILabel = UILabel();
+    private lazy var textField: UITextField = UITextField()
+    private lazy var submitButton = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
+    private lazy var cancelButton = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,12 +50,12 @@ final class TrackerCreationViewController: UIViewController{
             textField.heightAnchor.constraint(equalToConstant: 75)
         ])
         textField.placeholder = "Введите название трекера"
-        textField.font = .asset(.ysDisplayRegular, size: 17)
-        let paddingLeft = UIView(frame: .init(origin: .zero, size: .init(width: 16, height: 1)))
+        textField.font = .makeFont(.ysDisplayRegular, size: 17)
+        lazy var paddingLeft = UIView(frame: .init(origin: .zero, size: .init(width: 16, height: 1)))
         textField.leftViewMode = .always
         textField.leftView = paddingLeft
         textField.clearButtonMode = .always
-        textField.backgroundColor = .asset(.lightGrey).withAlphaComponent(0.3)
+        textField.backgroundColor = .makeColor(.lightGrey).withAlphaComponent(0.3)
         textField.layer.cornerRadius = 10
         textField.layer.masksToBounds = true
         textField.addTarget(self, action: #selector(handleTextField), for: .allEditingEvents)
@@ -65,17 +65,13 @@ final class TrackerCreationViewController: UIViewController{
         
         NSLayoutConstraint.activate([
             labelView.topAnchor.constraint(equalTo: view.topAnchor, constant: 13),
-            labelView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
+            labelView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
             submitButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -34),
             submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             submitButton.heightAnchor.constraint(equalToConstant: 60),
-            submitButton.widthAnchor.constraint(equalToConstant: 160)
-        ])
-        
-        NSLayoutConstraint.activate([
+            submitButton.widthAnchor.constraint(equalToConstant: 160),
+
             cancelButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -34),
             cancelButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             cancelButton.heightAnchor.constraint(equalToConstant: 60),
@@ -83,30 +79,30 @@ final class TrackerCreationViewController: UIViewController{
         ])
         
         labelView.text = isRegular ? "Новая привычка" : "Новое нерегулярное событие"
-        labelView.font = .asset(.ysDisplayMedium, size: 16)
+        labelView.font = .makeFont(.ysDisplayMedium, size: 16)
         submitButton.setTitle("Создать", for: .normal)
-        submitButton.backgroundColor = .asset(.grey)
+        submitButton.backgroundColor = .makeColor(.grey)
         submitButton.isEnabled = false
         submitButton.layer.cornerRadius = 16
         submitButton.addTarget(self, action: #selector(createTracker), for: .touchUpInside)
         submitButton.setTitleColor(.white, for: .normal)
         cancelButton.setTitle("Отменить", for: .normal)
         cancelButton.layer.borderWidth = 1
-        cancelButton.layer.borderColor = UIColor.asset(.red).cgColor
-        cancelButton.setTitleColor(.asset(.red), for: .normal)
+        cancelButton.layer.borderColor = UIColor.makeColor(.red).cgColor
+        cancelButton.setTitleColor(.makeColor(.red), for: .normal)
         cancelButton.layer.cornerRadius = 16
         cancelButton.addTarget(self, action: #selector(cancelCreation), for: .touchUpInside)
     }
     
     func updateButtonStatus() {
         let isScheduleOK = !isRegular  || !days.isEmpty
-        let isInputOK = textField.text != nil && textField.text != ""
+        let isInputOK = textField.text != nil && !(textField.text?.isEmpty ?? true)
         if isScheduleOK && isInputOK {
             submitButton.isEnabled = true
-            submitButton.backgroundColor = .asset(.black)
+            submitButton.backgroundColor = .makeColor(.black)
         } else {
             submitButton.isEnabled = false
-            submitButton.backgroundColor = .asset(.grey)
+            submitButton.backgroundColor = .makeColor(.grey)
         }
     }
     

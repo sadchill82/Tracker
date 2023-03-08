@@ -1,7 +1,7 @@
 import UIKit
 
 final class TrackerSelectViewController: UIViewController {
-    private let labelView: UILabel = UILabel();
+    private lazy var labelView: UILabel = UILabel()
     private let completion: (Tracker) -> Void
     
     init(completion: @escaping (Tracker) -> Void) {
@@ -45,25 +45,20 @@ final class TrackerSelectViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             labelView.topAnchor.constraint(equalTo: view.topAnchor, constant: 13),
-            labelView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
+            labelView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
             addHabitButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 330),
             addHabitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             addHabitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             addHabitButton.heightAnchor.constraint(equalToConstant: 60),
-            addHabitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
+            addHabitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
             addIrregularButton.topAnchor.constraint(equalTo: addHabitButton.bottomAnchor, constant: 16),
             addIrregularButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             addIrregularButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             addIrregularButton.heightAnchor.constraint(equalToConstant: 60),
             addIrregularButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-        
         
         addHabitButton.backgroundColor = .black
         addHabitButton.setTitle("Привычка", for: .normal)
@@ -75,7 +70,7 @@ final class TrackerSelectViewController: UIViewController {
         
         
         labelView.text="Создание трекера"
-        labelView.font = .asset(.ysDisplayMedium, size: 16)
+        labelView.font = .makeFont(.ysDisplayMedium, size: 16)
     }
     
     @objc

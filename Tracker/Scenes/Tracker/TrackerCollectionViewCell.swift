@@ -17,52 +17,52 @@ final class TrackerCollectionViewCell: UICollectionViewCell {
     }
     
     private lazy var addButton: UIButton = {
-        let button = UIButton()
+        lazy var button = UIButton()
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.layer.cornerRadius = 17
         button.clipsToBounds = true
-        button.tintColor = .asset(.white)
+        button.tintColor = .makeColor(.white)
         button.addTarget(self, action: #selector(doneTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    private var colorBackground: UIView = {
-        let view = UIView()
+    private lazy var colorBackground: UIView = {
+        lazy var view = UIView()
         view.layer.cornerRadius = 16
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    private var trackerLabel: UILabel = {
+    private lazy var trackerLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .asset(.ysDisplayMedium, size: 12)
-        label.textColor = .asset(.white)
+        label.font = .makeFont(.ysDisplayMedium, size: 12)
+        label.textColor = .makeColor(.white)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private var dayLabel: UILabel = {
+    private lazy var dayLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = .asset(.ysDisplayMedium, size: 12)
-        label.textColor = .asset(.black)
+        label.font = .makeFont(.ysDisplayMedium, size: 12)
+        label.textColor = .makeColor(.black)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private var emojiLabel: UILabel = {
+    private lazy var emojiLabel: UILabel = {
         let label = UILabel()
-        label.font = .asset(.ysDisplayMedium, size: 12)
+        label.font = .makeFont(.ysDisplayMedium, size: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private var emojiBackground: UIView = {
+    private lazy var emojiBackground: UIView = {
         let view = UIView()
-        view.backgroundColor = .asset(.contrast)
+        view.backgroundColor = .makeColor(.contrast)
         view.layer.cornerRadius = 12
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false

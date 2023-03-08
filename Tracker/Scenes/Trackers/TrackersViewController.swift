@@ -7,11 +7,11 @@ final class TrackersViewController: UIViewController {
     private var completedTrackers: [Date: Set<TrackerRecord>] = [:]
     private var currentDate: Date = Date()
     
-    private let datePicker: UIDatePicker = UIDatePicker()
+    private lazy var datePicker: UIDatePicker = UIDatePicker()
     private var searchText: String = ""
     private var isFiltered: Bool = false
     
-    private let collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(
             frame: .zero,
             collectionViewLayout: UICollectionViewFlowLayout()
@@ -45,8 +45,8 @@ final class TrackersViewController: UIViewController {
         if let navBar = navigationController?.navigationBar {
             navBar.prefersLargeTitles = true
             navBar.standardAppearance.largeTitleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.asset(.black),
-                NSAttributedString.Key.font: UIFont.asset(.ysDisplayBold, size: 34)
+                NSAttributedString.Key.foregroundColor: UIColor.makeColor(.black),
+                NSAttributedString.Key.font: UIFont.makeFont(.ysDisplayBold, size: 34)
             ]
             navigationItem.title = "Трекеры";
             navigationItem.leftBarButtonItem = addButton
@@ -85,11 +85,11 @@ final class TrackersViewController: UIViewController {
     private func setupTabBar(){
         if let tabBar = tabBarController?.tabBar {
             let lineView = UIView(frame: CGRect(x: 0, y: 0, width: tabBar.frame.size.width, height: 1))
-            lineView.backgroundColor = .asset(.lightGrey)
+            lineView.backgroundColor = .makeColor(.lightGrey)
             tabBar.addSubview(lineView)
             let tabItemsAppearance = UITabBarItemAppearance()
             tabItemsAppearance.normal.titleTextAttributes = [
-                NSAttributedString.Key.font: UIFont.asset(.ysDisplayMedium, size: 10)
+                NSAttributedString.Key.font: UIFont.makeFont(.ysDisplayMedium, size: 10)
             ]
         }
     }
@@ -138,7 +138,7 @@ final class TrackersViewController: UIViewController {
             target: self,
             action: #selector(addTracker)
         )
-        addButton.tintColor = .asset(.black)
+        addButton.tintColor = .makeColor(.black)
         return addButton
     }()
     

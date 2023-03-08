@@ -2,7 +2,7 @@ import UIKit
 
 final class OnboardingViewController: UIPageViewController {
     
-    private var pages: [UIViewController] = []
+    private lazy var pages: [UIViewController] = []
     
     private let messages = [
         (text: "Отслеживайте только то, что хотите", image: ImageAsset.onboarding1),
@@ -52,11 +52,11 @@ final class OnboardingViewController: UIPageViewController {
         selectedPage = 0
     }
     
-    private let pageControl: UIPageControl = {
+    private lazy var pageControl: UIPageControl = {
         let control = UIPageControl()
         
-        control.currentPageIndicatorTintColor = .asset(.black)
-        control.pageIndicatorTintColor = .asset(.black).withAlphaComponent(0.3)
+        control.currentPageIndicatorTintColor = .makeColor(.black)
+        control.pageIndicatorTintColor = .makeColor(.black).withAlphaComponent(0.3)
         
         control.translatesAutoresizingMaskIntoConstraints = false
         
@@ -65,7 +65,7 @@ final class OnboardingViewController: UIPageViewController {
     
     private let button = YPButton(label: "Вот это технологии!")
     
-    private let pageBackground: UIImageView = {
+    private lazy var pageBackground: UIImageView = {
         let imageView = UIImageView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -128,7 +128,7 @@ private extension OnboardingViewController {
 private extension OnboardingViewController {
     
     func configureViews() {
-        view.backgroundColor = .asset(.white)
+        view.backgroundColor = .makeColor(.white)
         pageControl.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
         
         view.addSubview(pageControl)

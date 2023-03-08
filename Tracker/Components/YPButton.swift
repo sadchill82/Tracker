@@ -9,11 +9,11 @@ final class YPButton: UIButton {
     init(label: String, destructive: Bool = false) {
         super.init(frame: .zero)
         
-        layer.borderColor = UIColor.asset(.red).cgColor
+        layer.borderColor = UIColor.makeColor(.red).cgColor
         layer.borderWidth = destructive ? 1 : 0
-        backgroundColor = destructive ? .clear : .asset(.black)
-        setTitleColor(destructive ? .asset(.red) : .asset(.white), for: .normal)
-        titleLabel?.font = .asset(.ysDisplayMedium, size: 16)
+        backgroundColor = destructive ? .clear : .makeColor(.black)
+        setTitleColor(destructive ? .makeColor(.red) : .makeColor(.white), for: .normal)
+        titleLabel?.font = .makeFont(.ysDisplayMedium, size: 16)
         
         setTitle(label, for: .normal)
         
@@ -21,8 +21,8 @@ final class YPButton: UIButton {
         translatesAutoresizingMaskIntoConstraints = false
         
         if !destructive {
-            setBackgroundColor(.asset(.black), for: .normal)
-            setBackgroundColor(.asset(.grey), for: .disabled)
+            setBackgroundColor(.makeColor(.black), for: .normal)
+            setBackgroundColor(.makeColor(.grey), for: .disabled)
         }
     }
     

@@ -7,7 +7,7 @@ final class ScheduleButton: UIButton {
         
         titleView.text = title
         
-        backgroundColor = .asset(.lightGrey).withAlphaComponent(0.3)
+        backgroundColor = .makeColor(.lightGrey).withAlphaComponent(0.3)
         
         layer.cornerRadius = 10
         layer.masksToBounds = true
@@ -42,9 +42,9 @@ final class ScheduleButton: UIButton {
     }
     
     private lazy var titleView: UILabel = {
-        let label = UILabel()
+        lazy var label = UILabel()
         
-        label.textColor = .asset(.black)
+        label.textColor = .makeColor(.black)
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -52,9 +52,9 @@ final class ScheduleButton: UIButton {
     }()
     
     private lazy var subtitleView: UILabel = {
-        let label = UILabel()
+        lazy var label = UILabel()
         
-        label.textColor = .asset(.grey)
+        label.textColor = .makeColor(.grey)
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -62,9 +62,9 @@ final class ScheduleButton: UIButton {
     }()
     
     private lazy var iconView: UIImageView = {
-        let view = UIImageView()
+        lazy var view = UIImageView()
         
-        view.image = UIImage(named: "arrow")?.withTintColor(.asset(.grey))
+        view.image = UIImage(named: "arrow")?.withTintColor(.makeColor(.grey))
         
         view.translatesAutoresizingMaskIntoConstraints = false
         
