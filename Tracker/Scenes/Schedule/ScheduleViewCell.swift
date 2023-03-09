@@ -35,6 +35,8 @@ final class ScheduleViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
+        
         configure()
     }
     

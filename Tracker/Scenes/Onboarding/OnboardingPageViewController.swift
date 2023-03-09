@@ -27,6 +27,8 @@ final class OnboardingPageViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         prepareLabel()
     }
     
