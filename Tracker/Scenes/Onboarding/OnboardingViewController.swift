@@ -72,10 +72,6 @@ final class OnboardingViewController: UIPageViewController {
         
         return imageView
     }()
-}
-
-
-private extension OnboardingViewController {
     
     var displayedPageIndex: Int? {
         guard let viewController = viewControllers?.first else { return nil }
@@ -122,10 +118,6 @@ private extension OnboardingViewController {
     func syncPageControl(_ index: Int) {
         pageControl.currentPage = index
     }
-}
-
-
-private extension OnboardingViewController {
     
     func configureViews() {
         view.backgroundColor = .makeColor(.white)
@@ -150,21 +142,17 @@ private extension OnboardingViewController {
             pageBackground.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-}
-
-// MARK: - User Action
-
-private extension OnboardingViewController {
-    func setupActions() {
+    
+    private func setupActions() {
         pageControl.addTarget(self, action: #selector(pageControlChanged(_:)), for: .valueChanged)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
-    @objc func pageControlChanged(_ sender: UIPageControl) {
+    @objc private func pageControlChanged(_ sender: UIPageControl) {
         selectedPage = sender.currentPage
     }
     
-    @objc func buttonTapped() {
+    @objc private func buttonTapped() {
         dismiss(animated: true)
         
     }
